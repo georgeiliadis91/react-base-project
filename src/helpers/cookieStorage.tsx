@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import { IStorage } from "../entities/storage";
-
 
 class CookieStorage implements IStorage {
   get = (name: string) => {
@@ -11,7 +9,6 @@ class CookieStorage implements IStorage {
     this.setCookie(name, value);
   };
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   clear = (name: string) => {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   };
@@ -23,12 +20,12 @@ class CookieStorage implements IStorage {
   ) => {
     const d = new Date();
     d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-    const expires = `expires=${  d.toUTCString()}`;
+    const expires = `expires=${d.toUTCString()}`;
     document.cookie = `${cookieName}=${cookieValue};${expires};path=/;`;
   };
 
   private readonly getCookie = (cookieName: string) => {
-    const name = `${cookieName  }=`;
+    const name = `${cookieName}=`;
     const ca = document.cookie.split(";");
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < ca.length; i++) {
@@ -37,7 +34,6 @@ class CookieStorage implements IStorage {
         c = c.slice(1);
       }
       if (c.startsWith(name)) {
-        // eslint-disable-next-line unicorn/prefer-string-slice
         return c.substring(name.length, c.length);
       }
     }
@@ -47,4 +43,4 @@ class CookieStorage implements IStorage {
 
 const cookieStore: IStorage = new CookieStorage();
 
-export {cookieStore};
+export { cookieStore };

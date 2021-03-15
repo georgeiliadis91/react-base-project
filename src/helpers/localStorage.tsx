@@ -1,6 +1,5 @@
 import { IStorage } from "../entities/storage";
 
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 class MyLocalStorage implements IStorage {
   get = (name: string) => {
     return localStorage.getItem(name);
@@ -14,7 +13,7 @@ class MyLocalStorage implements IStorage {
     localStorage.setItem(name, "");
   };
 }
-// Checking if localstorage is supported.
+
 export const isLocalStorageSupported = (() => {
   if (!("localStorage" in window)) {
     return false;
@@ -33,9 +32,6 @@ export const isLocalStorageSupported = (() => {
   }
 })();
 
-
-
-
 const localStore: IStorage = new MyLocalStorage();
 
-export {  localStore };
+export { localStore };
