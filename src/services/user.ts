@@ -1,5 +1,7 @@
+import { DUMMY_ENPOINT } from "../constants/constants";
 import { API } from "../helpers/api";
 import { cookieStore } from "../helpers/cookieStorage";
+
 
 const signInUser = async (
   identifier: string,
@@ -12,10 +14,12 @@ const signInUser = async (
         : "",
     },
   });
-  const response = await api.post("auth/local", {
+
+  const response = await api.post(DUMMY_ENPOINT, {
     identifier,
     password,
   });
+
   return response;
 };
 
@@ -27,7 +31,7 @@ const signOutUser = async (data: any): Promise<any> => {
         : "",
     },
   });
-  const response = await api.post("clients", data);
+  const response = await api.post(DUMMY_ENPOINT, data);
   return response;
 };
 
@@ -39,7 +43,8 @@ const checkToken = async (): Promise<any> => {
         : "",
     },
   });
-  const response = await api.get(`users/me`);
+  
+  const response = await api.get(DUMMY_ENPOINT);
   return response;
 };
 

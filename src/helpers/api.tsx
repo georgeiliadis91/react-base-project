@@ -15,6 +15,7 @@ class API {
     const response = await axios.get(url, this.config);
     return response.data;
   }
+
   public async post(url: string, data: any = {}): Promise<any> {
     const response = await axios.post(url, data, this.config);
     return response.data;
