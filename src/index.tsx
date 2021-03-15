@@ -3,15 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { Provider } from "react-redux";
 
+import { BrowserRouter } from "react-router-dom";
+
 import App from "./App";
 import { globalStore } from "./redux";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={globalStore}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={globalStore}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.querySelector("#root")
 );
