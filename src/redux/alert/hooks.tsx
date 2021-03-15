@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
+
 import { triggerClose, triggerError, triggerSuccess } from "./actions";
 
-//custom hook triggers
+// custom hook triggers
 export function useTriggerSuccess() {
   const dispatch = useDispatch();
   return (...args: Parameters<typeof triggerSuccess>) =>

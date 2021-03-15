@@ -1,13 +1,13 @@
-import { isLocalStorageSupported, LocalStore } from "../../helpers/storage";
+import { isLocalStorageSupported, localStore } from "../../helpers/localStorage";
 import { ActionTypes, AuthActionTypes } from "./actions";
 
-interface IAlertState {
+type IAlertState = {
   isAuthenticated: boolean | null;
 }
 
 const initialState: IAlertState = { isAuthenticated: null };
 
-const userReducer = (state = initialState, action: AuthActionTypes) => {
+const userReducer = (state = initialState, action: AuthActionTypes):IAlertState => {
   switch (action.type) {
     case ActionTypes.SIGNIN: {
       return triggerSignInUser(action.payload);
@@ -26,7 +26,7 @@ const userReducer = (state = initialState, action: AuthActionTypes) => {
 const triggerSignInUser = (token: string) => {
   //  Set token to local storage
   if(isLocalStorageSupported){
-    LocalStore.set("token",token)
+    localStore.set("token",token)
   }
   return { isAuthenticated: true };
 };
@@ -37,9 +37,10 @@ const triggerRefreshLogin = () => {
 
 const triggerSignOutUser = () => {
   if(isLocalStorageSupported){
-   LocalStore.clear("token")
+   localStore.clear("token")
   }
   return { isAuthenticated: false };
 };
 
+// eslint-disable-next-line import/no-default-export
 export default userReducer;

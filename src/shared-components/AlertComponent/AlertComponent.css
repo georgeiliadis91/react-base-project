@@ -1,0 +1,26 @@
+.alert-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.alert-wrapper:first-child {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.error-alert {
+    background: red;
+}
+
+.success-alert {
+    background: green;
+}
+
+.message-text {
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    padding: 1rem;
+    font-weight: 700;
+}

@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import "./MainView.css";
 
 interface Props {
     
@@ -6,7 +7,7 @@ interface Props {
 
 export default function MainView({}: Props): ReactElement {
     return (
-        <div>
+        <div className='main-view'>
             MainView - Component
         </div>
     )

@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+
 import { TIMEOUT_TIME } from "../../constants/constants";
 import { ActionTypes } from "../../redux/alert/actions";
 import { useTriggerClose } from "../../redux/alert/hooks";
 import { AppState } from "../../redux/reducers";
 
-import "./AlertComponent.scss";
+import "./AlertComponent.css";
 
-export default function AlertComponent() {
+export const AlertComponent = () => {
   const { open, type, message } = useSelector((state: AppState) => state.alert);
   const closeAlert = useTriggerClose();
 
@@ -28,7 +29,6 @@ export default function AlertComponent() {
       case ActionTypes.SUCCESS:
         return "success-alert";
       default:
-        return undefined;
     }
   };
 
@@ -38,9 +38,9 @@ export default function AlertComponent() {
 
   return (
     <div className="alert-wrapper">
-    <div className={alertType()}>
-      <p className="message-text">{message}</p>
+      <div className={alertType()}>
+        <p className="message-text">{message}</p>
+      </div>
     </div>
-  </div>
   );
-}
+};

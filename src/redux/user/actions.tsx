@@ -6,15 +6,15 @@ export enum ActionTypes {
 }
 
 // Action Interfaces
-interface ISignInAction {
+type ISignInAction = {
   type: ActionTypes.SIGNIN;
   payload: string;
 }
 
-interface ISignOutAction {
+type ISignOutAction = {
   type: ActionTypes.SIGNOUT;
 }
-interface IRefreshLogingAction {
+type IRefreshLogingAction = {
   type: ActionTypes.REFRESHLOGIN;
 }
 

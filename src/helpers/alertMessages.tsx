@@ -1,12 +1,7 @@
-import { StringDecoder } from "node:string_decoder";
-import { VALID_SELECTION_NUMBER } from "../constants/constants";
-import { formatTwoDecimals } from "./numberFormat";
-
-export const errorMessage = ( errMsg:string) => {
+export const errorMessage = (errMsg: string): string => {
   return `Error: ${errMsg}`;
 };
 
-export const successMessage = (successMsg:string) => {
+export const successMessage = (successMsg: string): string => {
   return `Sucess: ${successMsg}`;
 };
-

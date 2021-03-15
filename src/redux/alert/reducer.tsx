@@ -1,6 +1,6 @@
 import { ActionTypes, AlertActionTypes } from "./actions";
 
-interface IAlertState {
+export type IAlertState = {
   open: boolean;
   message: string;
   type: ActionTypes;
@@ -12,7 +12,7 @@ const initialState: IAlertState = {
   type: ActionTypes.CLOSE,
 };
 
-const alertReducer = (state = initialState, action: AlertActionTypes) => {
+const alertReducer = (state = initialState, action: AlertActionTypes):IAlertState => {
   switch (action.type) {
     case ActionTypes.ERROR: {
       return triggerErrorAlert(action.payload);
@@ -33,7 +33,7 @@ const alertReducer = (state = initialState, action: AlertActionTypes) => {
 const triggerErrorAlert = (message: string) => {
   return {
     open: true,
-    message: message,
+    message,
     type: ActionTypes.ERROR,
   };
 };
@@ -41,7 +41,7 @@ const triggerErrorAlert = (message: string) => {
 const triggerSuccessAlert = (message: string) => {
   return {
     open: true,
-    message: message,
+    message,
     type: ActionTypes.SUCCESS,
   };
 };
@@ -50,4 +50,6 @@ const triggerCloseAlert = () => {
   return initialState;
 };
 
+
+// eslint-disable-next-line import/no-default-export
 export default alertReducer;
