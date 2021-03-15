@@ -32,9 +32,11 @@ function App() {
     };
 
     const token = cookieStore.get("token");
+
     if (token) {
       checkAuth();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -49,6 +51,3 @@ function App() {
 
 // eslint-disable-next-line import/no-default-export
 export default App;
-function errorAlert(message: any) {
-  throw new Error("Function not implemented.");
-}
