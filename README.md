@@ -1,7 +1,9 @@
 # Base React App Template for Projects. 
 
 This is a dockerised react dev enviroment that **hot reloads**.
-It is bootstraped wtih create-react-app (CRA), in case you believe that CRA is too bloated (which is not anymore) and you want to customise
+It is bootstraped wtih create-react-app (CRA), in case you believe that CRA is too bloated (which is not anymore) and you want to customise it
+you can always eject and mingle with the configuration manually.
+
 It includes a base structure with Routing, Alert, User Auth Flows, Global Loading State, Redux and its Build. And most importantly Typescript.
 
 Installed libraries:
