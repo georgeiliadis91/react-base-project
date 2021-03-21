@@ -11,31 +11,31 @@ class API {
     this.config.baseURL = this.config.baseURL || process.env.REACT_APP_API_URL;
   }
 
-  public async get(url: string): Promise<any> {
+  public async get(url: string): Promise<unknown> {
     const response = await axios.get(url, this.config);
     return response.data;
   }
 
-  public async post(url: string, data: any = {}): Promise<any> {
+  public async post(url: string, data: unknown = {}): Promise<unknown> {
     const response = await axios.post(url, data, this.config);
     return response.data;
   }
 
-  public async patch(url: string, data: any = {}): Promise<any> {
+  public async patch(url: string, data: unknown = {}): Promise<unknown> {
     const response = await axios.put(url, data, this.config);
 
     return response.data;
   }
 
-  public async put(url: string, data: any = {}): Promise<any> {
+  public async put(url: string, data: unknown = {}): Promise<unknown> {
     const response = await axios.put(url, data, this.config);
     return response.data;
   }
 
-  public async delete(url: string, data: any = {}): Promise<any> {
+  public async delete(url: string, data: unknown = {}): Promise<unknown> {
     const response = await axios.delete(url, {
       ...this.config,
-      data: { ...data },
+      data: { data },
     });
     return response.data;
   }
