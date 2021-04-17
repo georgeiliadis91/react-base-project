@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/reducers";
-import { useTriggerLoadingOn } from "../../redux/loading/hooks";
+import {
+  useTriggerLoadingOff,
+  useTriggerLoadingOn,
+} from "../../redux/loading/hooks";
 
 export const DashboardLayout = () => {
   const triggerLoading = useTriggerLoadingOn();
+  const setLoadingOff = useTriggerLoadingOff();
   const { isAuthenticated } = useSelector((state: AppState) => state.user);
+
+  useEffect(() => {
+    if (isAuthenticated !== null) {
+      setLoadingOff();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   if (isAuthenticated === null) {
     triggerLoading();
