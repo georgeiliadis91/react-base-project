@@ -19,3 +19,8 @@ It is ment to be a starting point for large projects.
 All you need is to execute the Dockerfile included. If you are using vscode, you can simply install [Remote Containers](https://github.com/microsoft/vscode-dev-containers). and choose Open in Container in the command palette.
 
 More to come soon...
+
+TODOS:
+
+-fix bug on auth flow
+-create and alternative auth flow for work enviroments
